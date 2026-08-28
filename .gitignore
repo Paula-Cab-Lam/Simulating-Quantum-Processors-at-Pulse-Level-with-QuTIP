@@ -1,0 +1,6 @@
+qutip_venv/
+.qutip_venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+pulse_plots*/
