@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader #Easy and organized data loading to the 
 from torch.utils.data import Dataset  #Nice loadable dataset creation
 
 
-#Amplitude domain the data was generated over - used to normalize amplitude into [-1,1]
+#Used later to normalize amplitude into [-1,1]
 AMP_MIN, AMP_MAX = 0.0, 5.9
 
 
@@ -41,19 +41,11 @@ class NeuralNetwrok(nn.Module):
             nn.Linear(1, 64),
             nn.ReLU(),
             nn.Linear(64, 128),
-            nn.ReLU(),
+            nn.Tanh(),
             nn.Linear(128, 256),
-            nn.ReLU(),
-            nn.Linear(256, 512),
             nn.Tanh(),
-            nn.Linear(512, 1024),
-            nn.Tanh(),
-            nn.Linear(1024, 512),
-            nn.Tanh(),
-            nn.Linear(512, 256),
-            nn.ReLU(),
             nn.Linear(256, 128),
-            nn.ReLU(),
+            nn.Tanh(),
             nn.Linear(128, 64),
             nn.ReLU(),
             nn.Linear(64, 1),
