@@ -40,7 +40,10 @@ def load_valencia(file_name = 'props_valencia.json'):
 def create_circuit(gate: str):
     """X circuit or RX circuit"""
     circuit = QubitCircuit(1)
-    circuit.add_gate(gate, targets = 0)
+    if gate == 'X': 
+        circuit.add_gate(gate, targets = 0)
+    else: 
+        circuit.add_gate(gate, targets = 0, arg_value = np.pi/2)
     return circuit
 
 
